@@ -2,7 +2,7 @@
 lock "3.14.1"
 
 set :application, "fleamarket_new_77b"
-set :repo_url, "git@example.com:kojima97/fleamarket_new_77b.git"
+set :repo_url, "git@github.com:kojima97/fleamarket_new_77b.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
@@ -25,7 +25,7 @@ namespace :deploy do
     invoke 'unicorn:stop'
     invoke 'unicorn:start'
   end
-  
+
   desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
