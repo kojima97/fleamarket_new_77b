@@ -67,7 +67,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'kaminari'
-gem 'haml-rails'
+
+gem 'better_errors'
 #-----以下追加-----
 group :production do
   gem 'unicorn'
