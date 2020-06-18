@@ -69,6 +69,7 @@ gem 'devise'
 gem 'kaminari'
 
 gem 'better_errors'
+
 #-----以下追加-----
 group :production do
   gem 'unicorn'
