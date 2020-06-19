@@ -70,6 +70,7 @@ gem 'kaminari'
 gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
+gem 'fog-aws'
 #-----以下追加-----
 group :production do
   gem 'unicorn'
