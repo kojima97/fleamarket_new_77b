@@ -1,6 +1,31 @@
-## DB設計
+# README
 
-## usersテーブル
+# アプリケーション概要
+メルカリのコピーサイト。
+5人のチームでのアジャイル開発。
+
+# 機能一覧
+●ユーザー登録、ログイン機能
+●商品出品機能
+●商品購入機能
+
+# 使用技術
+## バックエンド
+Ruby
+## フロントエンド
+jquery
+## フレームワーク
+Ruby on Rails
+## データベース
+MySQL
+## インフラ
+AWS EC2 S3
+## デプロイ
+Capistranoによる自動デプロイ
+## ER Diagram
+
+
+## Usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false|
@@ -16,19 +41,19 @@
 |password|string|null: false|
 |introduction|text|
 ### Association
-- has_one :address
+- has_one :address, dependent: :destroy
 - has_many :products
-- has_many :comments
-- has_many :cards
+- has_many :comments, dependent: :destroy
+- has_many :cards, dependent: :destroy
 
 
 
-## addressesテーブル
+## Addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false|
 |postal_code|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |other|string|null: false|
 |building_name|string|null: false|
@@ -38,7 +63,7 @@
 
 
 
-## cardsテーブル
+## Cardテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_id|integer|null: false|
@@ -50,7 +75,7 @@
 
 
 
-## productsテーブル
+## Productテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false|
@@ -59,17 +84,21 @@
 |status|string|null: false|
 |brand|string|null: false|
 |explanation|text|null: false|
+|delivery_charge_id|integer|null: false|
+|send_day_id|integer|null: false|
 |user_id|integer|foreign_key: true, null: false|
 |category_id|integer|foreign_key: true, null: false|
+
+
 ### Association
 - belongs_to :user
 - belongs_to :category
-- has_many :comments
-- has_many :product_photos
+- has_many :comments, dependent: :destroy
+- has_many :product_photos, dependent: :destroy
 
 
 
-## categoriesテーブル
+## Categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -80,7 +109,7 @@
 
 
 
-## product_photosテーブル
+## Product_photoテーブル
 |Column|Type|Options|
 |------|----|-------|
 |photo|string|null: false|
@@ -90,8 +119,17 @@
 
 
 
+## Likeテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|foreign_key: true, null: false|
+|product_id|integer|foreign_key: true, null: false|
+### Association
+- belongs_to :user
+- belongs_to :product
 
-## commentsテーブル
+
+## Commentテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false|
