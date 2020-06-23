@@ -6,4 +6,9 @@ class ProductsController < ApplicationController
   def new
 
   end
+
+  def purchase_details_confirmation
+
+  end
 end
+
