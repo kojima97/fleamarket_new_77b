@@ -1,0 +1,85 @@
+body{ 
+  background-color:#ffffff;
+  margin-right: auto;//ここで中央寄せを指定する。
+  margin-left : auto;
+  width:700px;
+}
+
+.purchase-details-title{
+  padding: 40px;
+  border-bottom: 1px solid #dcdcdc;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.purchase-details{
+  padding: 40px;
+  border-bottom: 1px solid #dcdcdc;
+  font-weight: normal;
+  display: flex;
+  justify-content: space-around;
+  img{
+    background-color: #dcdcdc;
+    height: 80px;
+    width: 80px;
+  }
+}
+
+.payment-amount{
+  padding: 40px;
+  border-bottom: 1px solid #dcdcdc;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-method{
+  padding: 40px;
+  border-bottom: 1px solid #dcdcdc;
+  div{
+    font-weight: bold;
+  }
+  a{
+    font-size: 14px;
+    color:#0095EE;
+  }
+
+}
+.shipping-address{
+  padding: 40px;
+  border-bottom: 1px solid #dcdcdc;
+  div{
+    font-weight: bold;
+  }
+  a{
+    font-size: 14px;
+    color:#0095EE;
+  }
+
+}
+  
+.note{
+  display: flex;
+  justify-content: center;
+  margin: 40px 40px;
+  font-size: 14px;
+  color: red;
+}
+  
+.buy-btn{
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px 200px;
+  text-decoration: none;
+  color: #FFF;
+  background: #3CCACE;
+  transition: .4s;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
