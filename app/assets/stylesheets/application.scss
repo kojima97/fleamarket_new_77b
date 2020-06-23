@@ -1,6 +1,6 @@
 @import 'reset';
-@import 'modules/product-listing';
-
+@import 'module/product-listing';
+@import 'module/purchase-details';
 @import 'modules/cards';
 
 
@@ -30,7 +30,7 @@
       position: relative;
 
       .user {
-        
+
         // width: 700px;
         height: 200px;
         padding: 20px;
@@ -101,9 +101,9 @@
             font-weight: 600;
           }
         }
-      } 
+      }
 
-      
+
 
       .transaction-history {
         width: 700px;
@@ -158,7 +158,7 @@
         }
       }
     }
-    
+
   }
 
   .clearfix:after {
@@ -182,10 +182,10 @@
     width: 280px;
     height: 1300px;
     &__list {
-      
+
       width: 280px;
       height: 734px;
-      list-style-type : none;        
+      list-style-type : none;
       &-item {
         cursor: pointer;
         &:hover{
@@ -220,7 +220,7 @@
       font-size: 16px;
       font-weight: bold;
     }
-    
+
   }
 }
 .user__icon {
