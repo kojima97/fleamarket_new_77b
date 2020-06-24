@@ -6,11 +6,9 @@ class ProductsController < ApplicationController
   end
 
   def new
-
   end
 
   def purchase_details_confirmation
-
   end
 end
 
