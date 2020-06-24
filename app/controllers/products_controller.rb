@@ -5,5 +5,12 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def new
 
+  end
+
+  def purchase_details_confirmation
+
+  end
 end
+

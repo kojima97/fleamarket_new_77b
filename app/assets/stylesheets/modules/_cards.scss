@@ -1,0 +1,101 @@
+.method-payment{
+  padding: 40px;
+  border-bottom: 1px solid #DCDCDC;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+.card-number{
+  padding: 40px 200px;
+  border-bottom: 1px solid #DCDCDC;
+  font-weight: bold;
+  span{
+    background-color: red;
+    color: #FFFFFF;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  input{
+    width: 250px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 20px 0px 0px;
+  }
+}
+.expiration-date{
+  padding: 40px 200px;
+  border-bottom: 1px solid #DCDCDC;
+  font-weight: bold;
+  span.require{
+    background-color: red;
+    color: #FFFFFF;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+    p{
+    height: 40px;
+    margin: 20px 0px 0px;
+    select{
+      width: 110px;
+      height: 40px;
+      padding: 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      float: left;
+    }
+    span{
+      float: left;
+      padding: 10px;
+    }
+  }
+}
+.security-code{
+  padding: 40px 200px;
+  font-weight: bold;
+  span{
+    background-color: red;
+    color: #FFFFFF;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  input{
+    width: 250px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 20px 0px 0px;
+  }
+}
+.registration-btn{
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px 200px;
+  text-decoration: none;
+  color: #FFF;
+  background: #3CCACE;
+  transition: .4s;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.card {
+  background-color:#ffffff;
+  margin-right: auto;//ここで中央寄せを指定する。
+  margin-left : auto;
+  width:700px;
+}
