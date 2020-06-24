@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       get 'purchase_details_confirmation'
     end
   end
+  resources :users, only: [:show, :destroy]
+  resources :cards, only: [:new]
 end
