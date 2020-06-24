@@ -1,0 +1,26 @@
+%h2 住所情報登録
+= form_for @address do |f|
+  = render "devise/shared/error_messages", resource: @address
+  .field
+    = f.label :postal_code
+    %br/
+    = f.text_field :postal_code
+  .field
+    = f.label :都道府県
+    %br/
+    = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city
+  .field
+    = f.label :other
+    %br/
+    = f.text_field :other, autocomplete: "other"
+  .field
+    = f.label :building_name
+    %br/
+    = f.text_field :building_name
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"
