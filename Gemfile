@@ -78,6 +78,7 @@ gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'fog-aws'
 gem 'active_hash'
+gem 'ancestry'
 #-----以下追加-----
 group :production do
   gem 'unicorn'
