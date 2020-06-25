@@ -21,7 +21,7 @@ ja:
         last_sign_in_at: 最終ログイン時刻
         last_sign_in_ip: 最終ログインIPアドレス
         locked_at: ロック時刻
-        password: パスワード
+        password: パスワード(7文字以上)
         password_confirmation: パスワード（確認用）
         remember_created_at: ログイン記憶時刻
         remember_me: ログインを記憶する
@@ -33,11 +33,11 @@ ja:
         updated_at: 更新日
         first_name: 名字
         first_name_furigana: 名字（カタカナ）
-        last_name: 名字
+        last_name: 名前
         last_name_furigana: 名前（カタカナ）
         birthday: 誕生日
         nickname: ニックネーム
-        tel_number: ハイフンなし電話番号（任意）
+        tel_number: 電話番号（任意）
     models:
       user: ユーザ
   devise:

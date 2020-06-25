@@ -1,0 +1,120 @@
+a{
+  text-decoration: none;
+}
+
+.sign-in-wrapper{
+  background-color: #F5F5F5;
+  font-size: 14px;
+  .sign-in__header{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    line-height: 180px;
+    img {
+      height: 50px;
+      width: 180px;
+    }
+  } 
+  .sign-in-content{
+    align-items: center;
+
+    &__head{
+      background-color:white;
+      width: 457px;
+      height: 170px;
+      padding: 16px;
+      line-height:63px;
+      text-align:center;
+      margin: 0 auto;
+      margin-bottom: 50px;
+      &__text{
+      }
+      &__actions{
+        background-color: #3BCACD;
+        height: 50px;
+        width: 350px;
+        color: white;
+        margin: 0 auto;
+        line-height: 50px;
+
+        a:visited {
+          text-decoration:none; 
+          color: white;
+        }
+
+      }
+    }
+    &__main{
+
+      &__form {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 488px;
+        margin:0 auto ;
+        border: solid 1px #F5F5F5;
+        
+        &__group{
+          padding: 0 182px;
+
+          &__mail{
+            height: 50px;
+            width: 350px;
+            margin-top:50px;
+            
+          }
+          &__pass{
+            height: 50px;
+            width: 350px;
+
+          }
+        }
+
+        &__actions{
+          margin:25px 0;
+          text-align:center;
+          &__button{
+            background-color: #3BCACD;
+            height: 50px;
+            width: 350px;
+            color: white;
+          }
+        }
+        &__forget{
+          margin:0 185px;
+          padding:0 0 30px 0;
+        }
+      }
+    }
+
+    &__footer{
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      background-color: rgb(245, 245, 245);
+      &__other {
+        margin: 40px;
+        font-size: 12px;
+        color: #aaaaaa;
+        span {
+          margin-right: 15px;
+        }
+      }
+      &__logo {
+        img {
+          width: 180px;
+          height: 50px;
+        }
+      }
+      &__name {
+        p {
+        font-size: 12px;
+        color: #aaaaaa;
+        padding-bottom: 40px;
+        }
+      }
+    }
+  }
+}
+
