@@ -1,0 +1,32 @@
+.main-content
+  %section.user
+    .user-link
+      %figure
+        = image_tag "member_photo_noimage_thumb.png", class: "user__icon"
+      %h2.user-link__name
+        = current_user.nickname
+      .user-link__number
+        評価 0 出品数;0
+
+  %section.notification-todo
+    %ul.tabs
+      %li.select
+        お知らせ
+      %li
+        やることリスト
+    .tab-content__notification-todo
+      %ul.notification-item__list.hide
+        %li.notification-item__notfound 現在、やることリストはありません
+      %ul.notification-item__list
+
+  %section.transaction-history
+    %h2.header 購入した商品
+    %ul.transaction-tabs
+      %li.select
+        取引中
+      %li
+        過去の取引
+    .tab-content-transaction
+      %ul.tab-content-transaction__now 
+        %li.tab-content-transaction__notfound 取引中の商品がありません
+      %ul.tab-content-transaction__old.hide

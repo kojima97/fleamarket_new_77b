@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
 
@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "products#index"
-  resources :products, only: [:index, :new]
+  resources :products, only: [:index, :new, :show] do
+    collection do
+      get 'purchase_details_confirmation'
+    end
+  end
+  resources :users, only: [:show, :destroy]
+  resources :cards, only: [:new]
 end

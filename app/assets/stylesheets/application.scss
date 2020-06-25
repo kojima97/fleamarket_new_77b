@@ -1,4 +1,18 @@
 @import 'reset';
+@import 'modules/header';
+@import 'modules/footer';
+@import 'modules/top-page-main';
+@import 'modules/banner';
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import 'modules/product-listing';
+
 @import "sign-up";
 @import "sign-in";
+
+@import 'modules/purchase-details';
+@import 'modules/cards';
+@import 'modules/mypage';
+@import 'modules/purchase-details';
+@import 'modules/product-detail';
+
