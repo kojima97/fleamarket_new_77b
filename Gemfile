@@ -84,3 +84,7 @@ group :production do
   gem 'unicorn'
 end
 
+#-----以下追加-----
+gem 'enum_help'
+gem 'payjp'
+
