@@ -1,26 +1,34 @@
-%h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :postal_code
-    %br/
-    = f.text_field :postal_code
-  .field
-    = f.label :都道府県
-    %br/
-    = f.collection_select :prefecture_id, Prefecture.all, :id, :name
-  .field
-    = f.label :city
-    %br/
-    = f.text_field :city
-  .field
-    = f.label :other
-    %br/
-    = f.text_field :other, autocomplete: "other"
-  .field
-    = f.label :building_name
-    %br/
-    = f.text_field :building_name
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.sign-up-wrapper
+  %header.sign-up__header
+    = link_to '#' do
+      = image_tag "http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"
+  %main.sign-up-content
+    %h2.sign-up-content__head 商品送付先情報入力
+    = render "devise/shared/error_messages", resource: @address
+    %section.sign-up-content__main
+      .sign-up-content__main__form
+        = form_for @address do |f|
+          
+          .sign-up-content__main__form__group
+            = f.label :postal_code
+            %br/
+            = f.text_field :postal_code
+          .sign-up-content__main__form__group
+            = f.label :都道府県
+            %br/
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+          .sign-up-content__main__form__group
+            = f.label :city
+            %br/
+            = f.text_field :city
+          .sign-up-content__main__form__group
+            = f.label :other
+            %br/
+            = f.text_field :other, autocomplete: "other"
+          .sign-up-content__main__form__group
+            = f.label :building_name
+            %br/
+            = f.text_field :building_name
+          .sign-up-content__main__form__actions
+            = f.submit "新規登録"
+
