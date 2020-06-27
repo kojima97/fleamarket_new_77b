@@ -18,11 +18,10 @@
         = f.text_area :explanation, placeholder: "商品の説明(必須 1000文字以内)\r\n(色、素材、重さ、定価、注意点など)\r\n\r\n例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。"
     .product-details
       %p 商品詳細
+      %label カテゴリー
+      %span.require 必須
       .product-details__category
-        %label カテゴリー
-        %span.require 必須
-        %p
-          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+        = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         %label ブランド
         %span.any 任意
       .product-details__brand

@@ -1,4 +1,8 @@
 class Product < ApplicationRecord
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :explanation, presence: true, length: { maximum: 1000 }
+  validates :price,presence: true, inclusion: 300..9999999
+
   belongs_to :category
   has_many :product_photos, dependent: :destroy
 
