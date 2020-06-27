@@ -172,7 +172,6 @@
 .selling__price{
   padding: 40px;
   font-weight: bold;
-  border-bottom: 1px solid #dcdcdc;
   p{
     color: #a9a9a9;
     margin-bottom: 20px;
@@ -200,33 +199,38 @@
   }
 
 .exhibition-btn{
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 10px 200px;
-  text-decoration: none;
-  color: #FFF;
-  background: #3CCACE;
-  transition: .4s;
-  border-radius: 3px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  input{
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px 200px;
+    text-decoration: none;
+    color: #FFF;
+    background: #3CCACE;
+    transition: .4s;
+    border-radius: 3px;
+    width: 500px;
+  }
 }
 
 .save-draft-btn{
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 10px 200px;
-  text-decoration: none;
-  color: #FFF;
-  background: #ccc;
-  transition: .4s;
-  border-radius: 3px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  input{
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px 200px;
+    text-decoration: none;
+    color: #FFF;
+    background: #ccc;
+    transition: .4s;
+    border-radius: 3px;
+  }
 }
 
 .return{

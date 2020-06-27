@@ -136,11 +136,11 @@
       %span ¥
       = f.number_field :price, placeholder: "0", id: "price-result"
     .exhibition-btn
-      出品する
+      = f.submit '出品する'
     .save-draft-btn
-      下書きに保存
+      = f.submit '下書きに保存'
     .return
-      = link_to '#' do
+      = link_to root_path do
         もどる
     .note
       禁止されている行為および出品物を必ずご確認ください。
