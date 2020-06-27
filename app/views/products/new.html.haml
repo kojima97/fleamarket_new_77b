@@ -26,33 +26,28 @@
         %span.any 任意
       .product-details__brand
         = f.text_field :brand, placeholder: "例）エルメス"
+      %label 商品の状態
+      %span.require 必須
       .product-details__status
-        %label 商品の状態
-        %span.require 必須
-        %p
-          = f.select :status, Product.statuses.keys, id: "select_status"
+        = f.select :status, Product.statuses.keys, id: "select_status"
     .delivery
       %p 配送について
+      %label 配送料の負担
+      %span.require 必須
       .delivery__charge
-        %label 配送料の負担
-        %span.require 必須
-        %p
-          = f.select :bear, Product.bears.keys
+        = f.select :bear, Product.bears.keys
+      %label 配送方法
+      %span.require 必須
       .delivery__method
-        %label 配送方法
-        %span.require 必須
-        %p
-          = f.select :shipping_method, Product.shipping_methods.keys
+        = f.select :shipping_method, Product.shipping_methods.keys
+      %label 発送元の地域
+      %span.require 必須
       .delivery__prefecture
-        %label 発送元の地域
-        %span.require 必須
-        %p
-          = f.collection_select :area, Prefecture.all, :id, :name
+        = f.collection_select :area, Prefecture.all, :id, :name
+      %label 発送までの日数
+      %span.require 必須
       .delivery__send-day
-        %label 発送までの日数
-        %span.require 必須
-        %p
-          = f.select :ship_day, Product.ship_days.keys
+        = f.select :ship_day, Product.ship_days.keys
     .selling__price
       %p 価格（300~9,999,999円）
       %label 販売価格
