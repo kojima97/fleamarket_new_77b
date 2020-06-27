@@ -55,12 +55,8 @@
       .delivery__method
         %label 配送方法
         %span.require 必須
-        %select 
-          %option 選択してください
-          %option 未定
-          %option クロネコヤマト
-          %option ゆうパック
-          %option ゆうメール
+        %p
+          = f.select :shipping_method, Product.shipping_methods.keys
       .delivery__prefecture
         %label 発送元の地域
         %span.require 必須
@@ -69,11 +65,8 @@
       .delivery__send-day
         %label 発送までの日数
         %span.require 必須
-        %select 
-          %option 選択してください
-          %option １〜２日で発送
-          %option ２〜３日で発送
-          %option ４〜７日で発送
+        %p
+          = f.select :ship_day, Product.ship_days.keys
     .selling__price
       %p 価格（300~9,999,999円）
       %label 販売価格
