@@ -43,23 +43,15 @@
       .product-details__status
         %label 商品の状態
         %span.require 必須
-        %select 
-          %option 選択してください
-          %option 新品・未使用
-          %option 未使用に近い
-          %option 目立った傷や汚れなし
-          %option やや傷や汚れあり
-          %option 傷や汚れあり
-          %option 全体的に状態が悪い
+        %p
+          = f.select :status, Product.statuses.keys, id: "select_status"
     .delivery
       %p 配送について
       .delivery__charge
         %label 配送料の負担
         %span.require 必須
-        %select 
-          %option 選択してください
-          %option 送料込み（出品者負担）
-          %option 着払い（購入者負担）
+        %p
+          = f.select :bear, Product.bears.keys
       .delivery__method
         %label 配送方法
         %span.require 必須
