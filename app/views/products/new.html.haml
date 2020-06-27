@@ -36,10 +36,10 @@
           %option チケット
           %option 自転車・オートバイ
           %option その他
-      .product-details__brand
         %label ブランド
         %span.any 任意
-        %input 
+      .product-details__brand
+        = f.text_field :brand, placeholder: "例）エルメス"
       .product-details__status
         %label 商品の状態
         %span.require 必須
@@ -129,12 +129,12 @@
           %option １〜２日で発送
           %option ２〜３日で発送
           %option ４〜７日で発送
-    .selling-price
+    .selling__price
       %p 価格（300~9,999,999円）
       %label 販売価格
       %span.require 必須
-      %input{ type: "number" }円
-
+      %span ¥
+      = f.number_field :price, placeholder: "0", id: "price-result"
     .exhibition-btn
       出品する
     .save-draft-btn

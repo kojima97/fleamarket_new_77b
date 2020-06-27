@@ -169,7 +169,7 @@
   }
 }
 
-.selling-price{
+.selling__price{
   padding: 40px;
   font-weight: bold;
   border-bottom: 1px solid #dcdcdc;
@@ -177,7 +177,7 @@
     color: #a9a9a9;
     margin-bottom: 20px;
   }
-  span{
+  span.require{
     background-color: red;
     color: #ffffff;
     padding: 1px 4px;
@@ -185,7 +185,9 @@
     margin-left: 8px;
     font-size: 13px;
     font-weight: bold;
-    
+  }
+  span{
+    padding-left: 140px;
   }
   input{
     width: 300px;
@@ -193,10 +195,9 @@
     padding: 0 16px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    margin: 20px 0px 40px 150px;
+    margin: 20px 0px 40px 10px;
+    }
   }
-  
-}
 
 .exhibition-btn{
   position: relative;
