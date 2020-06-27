@@ -95,23 +95,23 @@
     font-weight: bold;
   }
   select{
-      width: 615px;
-      height: 40px;
-      padding: 0 16px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      margin: 20px 0px 40px;
+    width: 615px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 20px 0px 40px;
+    }
+    span.any{
+    background-color: #c0c0c0;
+    color: #ffffff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
     }
   &__brand{
-    span{
-      background-color: #c0c0c0;
-      color: #ffffff;
-      padding: 1px 4px;
-      border-radius: 3px;
-      margin-left: 8px;
-      font-size: 13px;
-      font-weight: bold;
-    }
     input{
       width: 580px;
       height: 40px;
