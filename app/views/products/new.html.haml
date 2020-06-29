@@ -6,7 +6,10 @@
       %label 出品画像
       %span.require 必須
       %p 最大5枚までアップロードできます
-      %pre クリックしてファイルをアップロード
+      %label 
+        %div クリックしてファイルをアップロード
+        = f.fields_for :product_photos do |i|
+          = i.file_field :product_photos, class: "hidden-field"
     .product
       %label  商品名
       %span.require 必須
@@ -49,7 +52,7 @@
       .delivery__send-day
         = f.select :ship_day, Product.ship_days.keys
     .selling__price
-      %p 価格（300~9,999,999円）
+      %p 価格（¥300~9,999,999）
       %label 販売価格
       %span.require 必須
       %span ¥

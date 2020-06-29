@@ -23,16 +23,24 @@
     margin-bottom: 20px;
     font-size: 14px;
   }
-  pre{
+  div{
     background-color: #e0ffff;
     font-weight: normal;
     height: 150px;
+    width: 620px;
     border: dashed 1px #3CCACE;
     border-radius: 3px;
     transition: .4s;
     color: #808080;
     text-align: center;
     line-height: 150px;
+  }
+  input{
+    display: none;
+  }
+  img{
+    height: 100px;
+    width: 100px;
   }
 }
 

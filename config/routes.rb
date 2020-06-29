@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "products#index"
-  resources :products, only: [:index, :new, :show] do
+  resources :products, only: [:index, :new, :show, :create] do
     collection do
       get 'purchase_details_confirmation'
     end
+    
   end
   resources :users, only: [:show, :destroy]
   resources :cards, only: [:new]

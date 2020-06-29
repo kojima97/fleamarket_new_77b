@@ -1,7 +1,11 @@
 class Product < ApplicationRecord
+  validates_associated :product_photos
   validates :name, presence: true, length: { maximum: 40 }
   validates :explanation, presence: true, length: { maximum: 1000 }
   validates :price,presence: true, inclusion: 300..9999999
+  validates :product_photos, presence: true
+
+  # accepts_nested_attributes_for :product_photos, allow_destroy: true
 
   belongs_to :category
   has_many :product_photos, dependent: :destroy
