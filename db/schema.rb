@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20200625020643) do
     t.string   "area",                                        null: false
     t.integer  "ship_day",                        default: 0, null: false
     t.integer  "user_id"
-    t.integer  "category_id"
+    t.integer  "category_id",                                 null: false
     t.integer  "exhibitor_user_id",                           null: false
     t.integer  "buyer_user_id"
     t.datetime "created_at",                                  null: false
