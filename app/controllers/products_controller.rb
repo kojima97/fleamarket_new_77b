@@ -7,24 +7,31 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
     @comments = Comment.where(product_id: params[:id])
     @user = User.find(@product.exhibitor_user_id)
     @category = Category.find(@product.category_id)
-    area = Prefecture.all.pluck(:name)
-    @area = area[@product.area - 1]
   end
 
   def new
-      @product = Product.new
-      @product.product_photos.new
-      @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+    @product = Product.new
+    @product.product_photos.new
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
   end
 
   def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path
+    else
+      @product = Product.new
+      @product.product_photos.build
+
+      render :new
+    end
   end
 
   def edit
@@ -34,6 +41,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    if current_user.id == @product.exhibitor_user_id && @product.destroy
+      redirect_to root_path
+    else
+      @parents = Category.where(ancestry: nil)  
+      @comments = Comment.where(product_id: params[:id])
+  
+      render :show
+    end
   end
 
   def purchase_details_confirmation
@@ -53,5 +68,8 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :explanation, :category_id, :status, :bear, :area, :brand, :days, :price, product_photos_attributes: [:photo, :_destroy, :id]).merge(exhibitor_user_id: current_user.id)
   end
 
-
+  def set_product
+    @product = Product.find(params[:id])
+  end
+end
 end
