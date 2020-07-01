@@ -48,11 +48,12 @@
         %tr
           %th カテゴリー
           %td
-            = link_to @category.parent.parent.name, product_path, class: ""
+            -# 商品出品機能が完成させてからやります
+            -# = @product.category.parent.parent.name
             %br
-              = link_to @category.parent.name, product_path, class: ""
+              -# = @product.category.parent.name
               %br
-                = link_to @category.name, product_path, class: ""
+                -# = @product.category.name
         %tr
           %th ブランド
           %td

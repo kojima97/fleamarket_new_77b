@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all.includes(:product_photos).order(created_at: :desc)
     @parents = Category.where(ancestry: nil)
+
   end
 
   def show
@@ -70,6 +71,4 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
-end
-
 end
