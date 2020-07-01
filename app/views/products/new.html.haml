@@ -21,8 +21,8 @@
       .product-details__category
         %label カテゴリー
         %span.require 必須
-        .product-details__category
-          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+        .product-details__category--select
+          = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
       .product-details__brand
         %label ブランド
         %span.any 任意

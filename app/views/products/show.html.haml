@@ -35,11 +35,13 @@
         %tr
           %th カテゴリー
           %td
-            = link_to "カテゴリーネーム", "path", class: ""
+            -# 商品出品機能が完成させてからやります
+            -# = @product.category.parent.parent.name
             %br
-              = link_to "カテゴリーネーム", "product_path", class: ""
+              -# = @product.category.parent.name
               %br
-                = link_to "カテゴリーネーム", "product_path", class: ""
+                -# = @product.category.name
+
         %tr
           %th ブランド
           %td
