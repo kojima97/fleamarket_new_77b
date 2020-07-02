@@ -23,7 +23,7 @@
       %ul.nav-right
         -if user_signed_in?
           %li.nav-right__box.nav-right__box-login
-            = link_to '出品',new_product_path,class:"header__link"
+            = link_to 'ログアウト',destroy_user_session_path, method: :delete, class:"header__link"
           %li.nav-right__box.nav-right__box-new
             = link_to 'マイページ',user_path(current_user.id),class:"header__link"
         -else
