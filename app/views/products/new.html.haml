@@ -39,7 +39,7 @@
       %label カテゴリー
       %span.require 必須
       .product-details__category
-        = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+          = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         %label ブランド
         %span.any 任意
       .product-details__brand
@@ -83,6 +83,6 @@
       禁止されている行為および出品物を必ずご確認ください。
       偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 
       また、出品をもちまして加盟店規約に同意したことになります。
-
-= render "/application/banner"
-= render "/application/footer"
+  
+  = render "/application/banner"
+  = render "/application/footer"

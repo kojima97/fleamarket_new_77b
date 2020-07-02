@@ -2,15 +2,22 @@
 
 .main
   .main-content
-    %h1.item-name 
+    %h1.item-name
+      = @product.name
     .main-content__photo
-      = image_tag "https://lh3.googleusercontent.com/proxy/3iYcqyqOKjg_Z_BqL8VP2EW7kc5P0p6X-fePvjibXvIyIhZxYRuUTwH9RghWP8xOEDiwxnPTyR1D3qGEReyI9n342JCQw1yHyo1QtKkIb5lEQvri"
+      = image_tag @product.product_photos[0].photo, class:'item-main-content__photo--big'
+      -if @product.buyer_user_id.present? 
+        .items-box_photo__sold
+          .items-box_photo__sold__inner SOLD
+
     .main-content__photoSub
-      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+      - @product.product_photos.each do |photo|
+        = image_tag photo.photo, class:'main-content__photoSub--small'
+    
     .main-content__price
-      %p.main-content__price--content
-        90000円
+      %p.lower-message__content
+        = @product.price
+        円
       %span.main-content__price--detail
         .main-content__price--detail-tax 
           (税込)
@@ -18,43 +25,55 @@
           送料込み
 
     .main-content__purchase
-      %button.main-content__purchase--btn
-        = link_to "編集、削除もしくは購入に進む" ,"#", id: "edit-btn"
+      -if (user_signed_in? && @product.buyer_user_id == nil)
+        -if (current_user.id == @product.exhibitor_user_id)
+          %button.main-content__purchase--btn
+            = link_to "商品情報を編集" ,edit_product_path(@product.id), id: "edit-btn"
+          %button.main-content__purchase--btn
+            = link_to "削除",product_path, method: :delete
+        - else
+          %button.main-content__purchase--btn
+            = link_to "購入に進む" , purchase_details_confirmation_products_path(@product.id) , method: :get
 
     .main-content__description
-      ここは商品の説明について
-      記載しています。
+      = @product.explanation
     
     %table.main-content__table
       %tbody
         %tr
           %th 出品者
           %td
-            = link_to "ユーザーネーム", "path", class: ""
+            = link_to @user.nickname, product_path, class: ""
             %div
         %tr
           %th カテゴリー
           %td
-            = link_to "カテゴリーネーム", "path", class: ""
+            -# 商品出品機能が完成させてからやります
+            -# = @product.category.parent.parent.name
             %br
-              = link_to "カテゴリーネーム", "product_path", class: ""
+              -# = @product.category.parent.name
               %br
-                = link_to "カテゴリーネーム", "product_path", class: ""
+                -# = @product.category.name
         %tr
           %th ブランド
           %td
+            = @product.brand
         %tr
           %th 商品の状態
           %td 
+            = @product.status
         %tr
           %th 配送料の負担
           %td 
+            = @product.bear
         %tr
           %th 配送元地域
           %td 
+            = @product.area
         %tr
           %th 発送日の目安
           %td 
+            = @product.ship_day 
 
     .main-content__btn
       %button.main-content__btn--like
@@ -67,32 +86,45 @@
         不適切な商品の通報
 
   .comment
-    .comment__history
-      .comment__history--content
-      .comment__history--content-date
+    - if @comments
+      - @comments.each do |comment|
+        .comment__history--name
+          = icon('fas', 'user')
+          = comment.user.nickname
+        .comment__history--content
+          = comment.text
+          .comment__history--content-date
+            Date:
+            = comment.created_at
+
     %input.comment__input{id: "comment__input", name: "", type: "text", value: "", placeholder: ""}
-    
     .comment__caution
       相手のことを考え丁寧なコメントを心がけましょう。
       %br
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
 
-    %button.comment__btn{:name => "button", :type => "submit"}
-      = icon('fas', 'comment')
-      コメントする
+    .comment__btn
+      -if (user_signed_in?)
+        -if (current_user.id?)
+          %button.comment__btn--link{:name => "button", :type => "submit"}
+            コメントする
+            = icon('fas', 'comment')
+        -else
+          %button.comment__btn--link
+            ログインしてください
 
   .other-products
     .other-products__links
       .other-products__links--privious
         = icon('fas', 'chevron-left')
-        = link_to "前の商品","#"
+        = link_to "前の商品","#{@product.id - 1}", method: :get
 
       .other-products__links--next
-        = link_to "次の商品","#"
+        = link_to "次の商品","#{@product.id + 1}", method: :get
         = icon('fas', 'chevron-right')
 
     .other-products__genre
-      = link_to "メンズをもっと見る", "/"
+      = link_to "メンズをもっと見る", "/" , method: :post 
 
 = render "/application/banner"
 = render "/application/footer"
