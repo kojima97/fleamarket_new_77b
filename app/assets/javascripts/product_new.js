@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function(){
                   </div>`
       return html;
     }
-
+    
     // ラベルのwidth操作
     function setLabel() {
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定

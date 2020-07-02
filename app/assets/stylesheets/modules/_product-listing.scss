@@ -1,3 +1,16 @@
+// アラート・ここから
+.notifications {
+  color: white;
+  text-align: center;  
+  .notice {
+    background-color: lightBlue;
+  }
+  .alert {
+    background-color: orange;
+  }
+}
+// アラート・ここまで
+
 .new{ 
   background-color:#ffffff;
   margin-right: auto;//ここで中央寄せを指定する。

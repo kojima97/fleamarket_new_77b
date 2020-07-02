@@ -20,13 +20,13 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to root_path(@product), notice: '出品完了'
     else
       @product = Product.new
       @product.product_photos.build
       @category_parent_array = Category.where(ancestry: nil).pluck(:name)
       @category_parent_array.unshift("---")
-
+      flash.now[:alert] = '入力欄を再度ご確認ください。'
       render :new
     end
   end

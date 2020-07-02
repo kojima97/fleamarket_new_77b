@@ -1,5 +1,11 @@
 = render "/application/header"
 
+-# アラート・ここから
+.notifications
+  - flash.each do |key, value|
+    = content_tag(:div, value, class: key)
+-# アラート・ここまで
+
 .new
   = form_for @product do |f|
     .product-photo
@@ -67,7 +73,7 @@
       %span ¥
       = f.number_field :price, placeholder: "0", id: "price-result"
     .exhibition-btn
-      = f.submit '出品する'
+      = f.submit '出品する', class:"submit-exhibit"
     .save-draft-btn
       = f.submit '下書きに保存'
     .return
