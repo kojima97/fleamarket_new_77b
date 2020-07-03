@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
     if user_signed_in?
       @product = Product.new
       @product.product_photos.build
-      @category_parent_array = Category.where(ancestry: nil).pluck(:name).unshift("---")
+      @category_parent_array = Category.where(ancestry: nil)
     else
       redirect_to root_path, notice: 'ログインもしくはサインインしてください。'
     end
@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
   end
 
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find_by(id: params[:parent_name], ancestry: nil).children
   end
 
   def get_category_grandchildren

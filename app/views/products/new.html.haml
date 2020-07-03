@@ -20,11 +20,11 @@
         .hidden-content
           = f.fields_for :product_photos do |i|
             = i.file_field :product_photos, class: "hidden-field"
-            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][1][product_photos]", id: "product_photos_attributes_1_product_photos" }
-            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][2][product_photos]", id: "product_photos_attributes_2_product_photos" }
-            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][3][product_photos]", id: "product_photos_attributes_3_product_photos" }
-            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][4][product_photos]", id: "product_photos_attributes_4_product_photos" }
-            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][5][product_photos]", id: "product_photos_attributes_5_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][1][photo]]", id: "product_photos_attributes_1_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][2][photo]", id: "product_photos_attributes_2_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][3][photo]", id: "product_photos_attributes_3_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][4][photo]", id: "product_photos_attributes_4_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][5][photo]", id: "product_photos_attributes_5_product_photos" }
     .product
       %label  商品名
       %span.require 必須
@@ -39,10 +39,10 @@
       %label カテゴリー
       %span.require 必須
       .product-details__category
-          = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+        = f.collection_select(:category_id, Category.roots,:id, :name,{include_blank:"---"}, {id: 'parent_category'})
+      .product-details__brand
         %label ブランド
         %span.any 任意
-      .product-details__brand
         = f.text_field :brand, placeholder: "例）エルメス"
       %label 商品の状態
       %span.require 必須
