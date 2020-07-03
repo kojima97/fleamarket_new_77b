@@ -41,26 +41,26 @@
             width: calc(100% - 26px);
             height: 36px;
             padding: 0 0 0 5px;
-             font-family: inherit;
-             font-size: inherit;
-             font-weight: inherit;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
           }
           &__submit {
-            width: 36px;
             border: 0;
             cursor: pointer;
-            background-color: #3CCACE;
-            padding: 8px;
             
             &__button {
               background-color: #3CCACE;
+              height: 40px;
+              width: 36px;
+              margin-top: 0;
+              margin-left: 0;
 
               &__btn {
                 display: none;
               }
               &__image {
                 width: 100%;
-                vertical-align: bottom;
               }
             }
           }
