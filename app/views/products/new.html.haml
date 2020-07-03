@@ -1,133 +1,83 @@
 = render "/application/header"
 
+-# アラート・ここから
+.notifications
+  - flash.each do |key, value|
+    = content_tag(:div, value, class: key)
+-# アラート・ここまで
+
 .new
   = form_for @product do |f|
     .product-photo
       %label 出品画像
       %span.require 必須
       %p 最大5枚までアップロードできます
-      %pre クリックしてファイルをアップロード
+      .product-photo__container
+        .prev-content
+        .label-content
+          %label{for: "product_photos_attributes_1_product_photos", class: "label-box", id: "label-box--1"}
+            %pre.label-box__text-visible クリックしてファイルをアップロード
+        .hidden-content
+          = f.fields_for :product_photos do |i|
+            = i.file_field :product_photos, class: "hidden-field"
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][1][product_photos]", id: "product_photos_attributes_1_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][2][product_photos]", id: "product_photos_attributes_2_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][3][product_photos]", id: "product_photos_attributes_3_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][4][product_photos]", id: "product_photos_attributes_4_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[photos_attributes][5][product_photos]", id: "product_photos_attributes_5_product_photos" }
     .product
-      .product__name  
-        %label  商品名
-        %span.require 必須
-        %input 
+      %label  商品名
+      %span.require 必須
+      .product__name
+        = f.text_field :name, placeholder: "40文字まで"
+      %label 商品の説明
+      %span.require 必須
       .product__explanation
-        %label 商品の説明
-        %span.require 必須
-        %textarea 
+        = f.text_area :explanation, placeholder: "商品の説明(必須 1000文字以内)\r\n(色、素材、重さ、定価、注意点など)\r\n\r\n例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。"
     .product-details
       %p 商品詳細
+      %label カテゴリー
+      %span.require 必須
       .product-details__category
-        %label カテゴリー
-        %span.require 必須
-        .product-details__category--select
           = f.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-      .product-details__brand
         %label ブランド
         %span.any 任意
-        %input 
+      .product-details__brand
+        = f.text_field :brand, placeholder: "例）エルメス"
+      %label 商品の状態
+      %span.require 必須
       .product-details__status
-        %label 商品の状態
-        %span.require 必須
-        %select 
-          %option 選択してください
-          %option 新品・未使用
-          %option 未使用に近い
-          %option 目立った傷や汚れなし
-          %option やや傷や汚れあり
-          %option 傷や汚れあり
-          %option 全体的に状態が悪い
+        = f.select :status, Product.statuses.keys, id: "select_status"
     .delivery
       %p 配送について
+      %label 配送料の負担
+      %span.require 必須
       .delivery__charge
-        %label 配送料の負担
-        %span.require 必須
-        %select 
-          %option 選択してください
-          %option 送料込み（出品者負担）
-          %option 着払い（購入者負担）
+        = f.select :bear, Product.bears.keys
+      %label 配送方法
+      %span.require 必須
       .delivery__method
-        %label 配送方法
-        %span.require 必須
-        %select 
-          %option 選択してください
-          %option 未定
-          %option クロネコヤマト
-          %option ゆうパック
-          %option ゆうメール
+        = f.select :shipping_method, Product.shipping_methods.keys
+      %label 発送元の地域
+      %span.require 必須
       .delivery__prefecture
-        %label 発送元の地域
-        %span.require 必須
-        %select
-          %option 選択してください
-          %option{ value: "1"} 北海道
-          %option{ value: "2"} 青森県
-          %option{ value: "3"} 岩手県
-          %option{ value: "4"} 宮城県
-          %option{ value: "5"} 秋田県
-          %option{ value: "6"} 山形県
-          %option{ value: "7"} 福島県
-          %option{ value: "8"} 茨城県
-          %option{ value: "9"} 栃木県
-          %option{ value: "10"} 群馬県
-          %option{ value: "11"} 埼玉県
-          %option{ value: "12"} 千葉県
-          %option{ value: "13"} 東京都
-          %option{ value: "14"} 神奈川県
-          %option{ value: "15"} 新潟県
-          %option{ value: "16"} 富山県
-          %option{ value: "17"} 石川県
-          %option{ value: "18"} 福井県
-          %option{ value: "19"} 山梨県
-          %option{ value: "20"} 長野県
-          %option{ value: "21"} 岐阜県
-          %option{ value: "22"} 静岡県
-          %option{ value: "23"} 愛知県
-          %option{ value: "24"} 三重県
-          %option{ value: "25"} 滋賀県
-          %option{ value: "26"} 京都府
-          %option{ value: "27"} 大阪府
-          %option{ value: "28"} 兵庫県
-          %option{ value: "29"} 奈良県
-          %option{ value: "30"} 和歌山県
-          %option{ value: "31"} 鳥取県
-          %option{ value: "32"} 島根県
-          %option{ value: "33"} 岡山県
-          %option{ value: "34"} 広島県
-          %option{ value: "35"} 山口県
-          %option{ value: "36"} 徳島県
-          %option{ value:"37"} 香川県
-          %option{ value: "38"} 愛媛県
-          %option{ value: "39"} 高知県
-          %option{ value: "40"} 福岡県
-          %option{ value: "41"} 佐賀県
-          %option{ value: "42"} 長崎県
-          %option{ value: "43"} 熊本県
-          %option{ value: "44"} 大分県
-          %option{ value: "45"} 宮崎県
-          %option{ value: "46"} 鹿児島県
-          %option{ value: "47"} 沖縄県
+        = f.collection_select :area, Prefecture.all, :id, :name
+      %label 発送までの日数
+      %span.require 必須
       .delivery__send-day
-        %label 発送までの日数
-        %span.require 必須
-        %select 
-          %option 選択してください
-          %option １〜２日で発送
-          %option ２〜３日で発送
-          %option ４〜７日で発送
-    .selling-price
-      %p 価格（300~9,999,999円）
+        = f.select :ship_day, Product.ship_days.keys
+    .selling__price
+      %p 価格（¥300~9,999,999）
       %label 販売価格
       %span.require 必須
-      %input{ type: "number" }円
-
+      %span ¥
+      = f.number_field :price, placeholder: "0", id: "price-result"
     .exhibition-btn
-      出品する
+      = f.submit '出品する', class:"submit-exhibit"
     .save-draft-btn
-      下書きに保存
+      = f.submit '下書きに保存'
     .return
-      = link_to '#' do
+      = link_to root_path do
         もどる
     .note
       禁止されている行為および出品物を必ずご確認ください。

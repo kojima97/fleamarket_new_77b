@@ -15,26 +15,28 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    @product.product_photos.new
-    @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+    if user_signed_in?
+      @product = Product.new
+      @product.product_photos.build
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name).unshift("---")
+    else
+      redirect_to root_path, notice: 'ログインもしくはサインインしてください。'
     end
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to root_path(@product), notice: '出品完了'
     else
       @product = Product.new
       @product.product_photos.build
-
+      flash.now[:alert] = '入力欄を再度ご確認ください。'
       render :new
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name).unshift("---")
     end
   end
-
+  
   def edit
   end
 

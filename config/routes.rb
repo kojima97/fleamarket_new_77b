@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'category/get_category_children', to: 'products#get_category_children', defaults: { format: 'json' }
     get 'category/get_category_grandchildren', to: 'products#get_category_grandchildren', defaults: { format: 'json' }
     end
+    
   end
   resources :users, only: [:show, :destroy]
   resources :cards, only: [:index, :create, :new]
