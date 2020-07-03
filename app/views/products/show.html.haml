@@ -48,12 +48,11 @@
         %tr
           %th カテゴリー
           %td
-            -# 商品出品機能が完成させてからやります
-            -# = @product.category.parent.parent.name
+            = @product.category.parent.parent.name
             %br
-              -# = @product.category.parent.name
+              = @product.category.parent.name
               %br
-                -# = @product.category.name
+                = @product.category.name
         %tr
           %th ブランド
           %td
