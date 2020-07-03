@@ -21,7 +21,8 @@
   %p.note
     配送先と支払い方法の入力を完了してください。
   .buy-btn
-    購入する
+    = link_to "購入に進む" ,buy_product_purchases_path(@product.id), method: :get
+
 
 = render "/application/banner"
 = render "/application/footer"

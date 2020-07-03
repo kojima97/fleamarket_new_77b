@@ -1,16 +1,4 @@
-class ProductsController < ApplicationController
-
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
-  def purchase_details_confirmation
-  end
+class PurchasesController < ApplicationController
   require "payjp"
 
   def buy
@@ -105,4 +93,3 @@ class ProductsController < ApplicationController
     end
   end
 end
-

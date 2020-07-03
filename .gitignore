@@ -18,3 +18,4 @@
 
 #-------追記--------
 config/secrets.yml
+/.env
