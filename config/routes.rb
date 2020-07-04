@@ -19,5 +19,19 @@ Rails.application.routes.draw do
     
   end
   resources :users, only: [:show, :destroy]
-  resources :cards, only: [:index, :create, :new]
+
+  resources :credit_cards, only: [:new, :create, :show, :destroy] do
+  end
+  resources :products do
+    # 他の記述は省略
+    resource :purchases do
+      member do
+        get  "buy"
+        post "pay"
+      end
+    end
+  end
+
+  
+
 end

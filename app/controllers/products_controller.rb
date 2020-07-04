@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all.includes(:product_photos).order(created_at: :desc)
@@ -58,6 +57,7 @@ class ProductsController < ApplicationController
   def purchase_details_confirmation
   end
 
+
   def get_category_children
     @category_children = Category.find_by(id: params[:parent_name], ancestry: nil).children
   end
@@ -67,6 +67,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
 
   def product_params
     params.require(:product).permit(:name, :explanation, :category_id, :status, :bear, :shipping_method, :prefecture_id, :brand, :ship_day, :price, product_photos_attributes: [:photo]).merge(exhibitor_user_id: current_user.id)
