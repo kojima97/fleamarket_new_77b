@@ -2,21 +2,24 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
-
   }
-  
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root to: "products#index"
-  resources :products, only: [:index, :new, :show] do
+
+  resources :products do
     collection do
       get 'purchase_details_confirmation'
+      get 'category/get_category_children', to: 'products#get_category_children', defaults: { format: 'json' }
+    get 'category/get_category_grandchildren', to: 'products#get_category_grandchildren', defaults: { format: 'json' }
     end
+    
   end
   resources :users, only: [:show, :destroy]
+
   resources :credit_cards, only: [:new, :create, :show, :destroy] do
   end
   resources :products do
@@ -28,4 +31,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  
+
 end

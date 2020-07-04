@@ -42,27 +42,22 @@
           height: 550px;
           background-color: white;
           width: 700px;
-          border: 1px solid #f5f5f5;
-          float: left;
-          
+          border: 1px solid #f5f5f5;          
         }
         #new_address {
           height: 420px;
           background-color: white;
           width: 700px;
           border: 1px solid #f5f5f5;
-          float: left;
           margin: 0 auto;
         }
 
         &__group{
-          
           margin-top: 20px;
           display: flex;
           font-size: 20px;
           #user_first_name,#user_first_name_furigana,#user_last_name,#user_last_name_furigana {
-            width: 180px;
-            
+          width: 231px;
           }
           #user_birthday_2i {
             margin-left: 5px;
@@ -93,7 +88,7 @@
             font-family: "Yu Gothic";
           }
 
- 
+
 
           &__name{
             width: 160px;
@@ -157,8 +152,8 @@
             background-color: #3BCACD;
             height: 50px;
             width: 250px;
-           }
-         }
+          }
+        }
       } 
     }
   }
