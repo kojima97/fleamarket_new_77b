@@ -61,7 +61,7 @@
       %label 発送元の地域
       %span.require 必須
       .delivery__prefecture
-        = f.collection_select :area, Prefecture.all, :id, :name
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name
       %label 発送までの日数
       %span.require 必須
       .delivery__send-day
