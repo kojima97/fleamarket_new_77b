@@ -10,7 +10,6 @@ class PurchasesController < ApplicationController
 
     # まずはログインしているか確認
     if user_signed_in?
-      # @user = current_user
       # クレジットカードが登録されているか確認
       if current_user.credit_card.present?
         # 前前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
