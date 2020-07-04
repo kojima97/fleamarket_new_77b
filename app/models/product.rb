@@ -5,6 +5,8 @@ class Product < ApplicationRecord
   validates :price,presence: true, inclusion: 300..9999999
   validates :product_photos, presence: true
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
   belongs_to :category
   has_many :product_photos, dependent: :destroy
 
