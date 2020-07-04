@@ -5,8 +5,11 @@ class CreditCardsController < ApplicationController
     def new
       # 前回のnewアクションに追記
       # すでにクレジットカード登録されている場合は、showアクションにリダイレクト
-      @card = CreditCard.where(user_id: current_user.id)
-      redirect_to credit_card_path(current_user.id) if @card.exists?
+      if CreditCard.where(user_id: current_user.id).exists?
+        redirect_to credit_card_path(current_user.id)
+      else
+        @card = CreditCard.new
+      end
     end
   
     def create

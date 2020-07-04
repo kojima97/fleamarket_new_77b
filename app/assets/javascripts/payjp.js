@@ -1,5 +1,5 @@
 $(function(){
-  console.log('OK')
+  
   //id名が"payment_card_submit-button"というボタンが押されたら取得
   let submit = document.getElementById("payment_card_submit-button");
 
@@ -17,7 +17,6 @@ $(function(){
     };
 
     Payjp.createToken(card, function(status, response) {  // トークンを生成
-      console.log(response)
       if (status === 200) { //成功した場合(status === 200はリクエストが成功している状況です。)
         //データを自サーバにpostしないようにremoveAttr("name")で削除
         $(".number").removeAttr("name");
