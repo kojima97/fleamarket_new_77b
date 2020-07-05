@@ -9,8 +9,9 @@ class ProductsController < ApplicationController
   def show
     @parents = Category.where(ancestry: nil)
     @comments = Comment.where(product_id: params[:id])
-    @user = User.find(@product.exhibitor_user_id)
-    @category = Category.find(@product.category_id)
+    @user = User.find(current_user.id)
+    @product = Product.find(params[:id])
+    # @category = Category.find(@product.category_id)
   end
 
   def new
@@ -44,6 +45,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
     if current_user.id == @product.exhibitor_user_id && @product.destroy
       redirect_to root_path
     else
