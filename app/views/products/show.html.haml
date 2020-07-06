@@ -33,7 +33,7 @@
             = link_to "削除",product_path, method: :delete
         - else
           %button.main-content__purchase--btn
-            = link_to "購入に進む" , purchase_details_confirmation_products_path(@product.id) , method: :get
+            = link_to "購入に進む" , buy_product_purchases_path(@product.id) , method: :get
 
     .main-content__description
       = @product.explanation
