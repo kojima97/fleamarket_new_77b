@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all.includes(:product_photos).order(created_at: :desc)
@@ -9,7 +10,7 @@ class ProductsController < ApplicationController
   def show
     @parents = Category.where(ancestry: nil)
     @comments = Comment.where(product_id: params[:id])
-    @user = User.find(current_user.id)
+    @user = User.find(@product.exhibitor_user_id)
     @product = Product.find(params[:id])
     # @category = Category.find(@product.category_id)
   end
@@ -37,7 +38,7 @@ class ProductsController < ApplicationController
       @category_parent_array = Category.where(ancestry: nil).pluck(:name).unshift("---")
     end
   end
-  
+
   def edit
   end
 
@@ -49,9 +50,9 @@ class ProductsController < ApplicationController
     if current_user.id == @product.exhibitor_user_id && @product.destroy
       redirect_to root_path
     else
-      @parents = Category.where(ancestry: nil)  
+      @parents = Category.where(ancestry: nil)
       @comments = Comment.where(product_id: params[:id])
-  
+
       render :show
     end
   end

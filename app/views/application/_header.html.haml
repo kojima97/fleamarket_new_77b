@@ -3,7 +3,7 @@
     .header__body__main
       .header__body__main__icon-space
         = link_to image_tag("material/logo/logo.png", class: "header__body__main__icon-space__icon"), root_path
-      
+
       .header__body__main__searchbox
         %form.header__body__main__searchbox__form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
           %input{:name => "utf-8", :type => "hidden", :value => ""}/
@@ -12,7 +12,7 @@
             %button.header__body__main__searchbox__form__submit__button{:type => "submit"}
               = link_to image_tag "material/icon/icon-search 1.png", class:"header__body__main__searchbox__form__submit__button__image"
       %ul.header__body__main__resultslists
-    
+
     .header__body__nav
       %ul.nav-left
         %li.nav-left__box.nav-left__box-category
@@ -22,7 +22,7 @@
       %ul.nav-right
         -if user_signed_in?
           %li.nav-right__box.nav-right__box-login
-            = link_to 'ログアウト',destroy_user_session_path, method: :delete, class:"header__link"
+            = link_to '商品出品',new_product_path, class:"header__link"
           %li.nav-right__box.nav-right__box-new
             = link_to 'マイページ',user_path(current_user.id),class:"header__link"
         -else
