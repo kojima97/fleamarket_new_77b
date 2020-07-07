@@ -1,6 +1,5 @@
 
 $(function(){
-  
   //プレビューのhtmlを定義
   function buildHTML(count) {
     var html = `<div class="preview-box" id="preview-box__${count}">
@@ -65,7 +64,7 @@ $(function(){
       }
     }
   });
-
+  
   // 画像の削除
   $(document).on('click', '.delete-box', function() {
     $(this).prev().remove();
@@ -89,7 +88,7 @@ $(function(){
 
     if(id < 5){
       //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
-      $('.label-box').attr({id: `label-box--${id}`,for: `product_photos_attributes_${id}_image`});
+      $('.label-box').attr({id: `label-box--${id}`,for: `product_photos_attributes_${id}_product_photos`});
     }
   });
 });

@@ -1,0 +1,122 @@
+.wrapper{
+  .main{
+
+    .card_add{
+      width: 700px;
+      background-color: white;
+      padding-bottom: 50px;
+      margin: 0 auto;
+    }
+
+    .title{
+      text-align: center;
+      padding: 8px 24px;
+      font-size: 22px;
+      font-weight: bold;
+      border-bottom: 1px solid #f5f5f5;
+      font-size: 24px;
+    }
+
+    .card_add{
+      .details{
+        width: 343px;
+        margin: 0 auto;
+        padding: 64px;
+      }
+      .number-details{
+        margin-top: 32px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .card-num{
+      display: inline-block;
+      font-weight: 600;
+      color: #333;
+      font-size: 14px;
+    }
+    .must_check{
+      background-color: #2CCCD1;
+      margin-left: 8px;
+      padding: 4px;
+      border-radius: 2px;
+      color: white;
+      font-size: 13px;
+    }
+
+
+    .expirationdate__details {
+      display: flex;
+      justify-content: center;
+    }
+
+    .month {
+      display: flex;
+      justify-content: center;
+    }
+
+    .year {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+    .securitycode__details{
+      display: flex;
+      justify-content: center;
+    }
+
+    .securitycode__cardsecurity{
+      display: flex;
+      justify-content: center;
+      .securitycode__cardsecurity__form{
+        width: 80%;
+      }
+    }
+    .card-question{
+      margin-left: 130px;;
+    }
+    .cardnumber {
+      width: 100%;
+    }
+
+    .add__btn {
+      background-color: #2CCCD1;
+      line-height: 48px;
+      display: block;
+      width: 100%;
+      border: none;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      color: white;
+      margin: 30px 0;
+    }
+  }
+
+
+
+    
+      //   &__lists{
+      //     padding: 24px 0;
+      //     border-bottom: 1px solid #eee;
+      //     &__list{
+      //       &__top{
+      //         display: flex;
+      //         justify-content: space-between;
+      //       }
+      //       &__number{
+      //         margin: 8px 0 0;
+      //         font-size: 16px;
+      //       }
+      //       &__date{
+      //         margin: 8px 0 0;
+      //         font-size: 16px;
+      //       }
+      //     }
+      //   }
+      // &__link{
+      //   padding: 0 30px;
+      //   &__btn{
+      //     text-align: right;
+      //   }
+      // }

@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   validates_associated :product_photos
   validates :name, presence: true, length: { maximum: 40 }
   validates :explanation, presence: true, length: { maximum: 1000 }
+  validates :category_id, :status, :bear, :ship_day, presence: true
   validates :price,presence: true, inclusion: 300..9999999
   validates :product_photos, presence: true
 
@@ -9,8 +10,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to :category
   has_many :product_photos, dependent: :destroy
-
-
+  
   accepts_nested_attributes_for :product_photos, allow_destroy: true
   
   # validates :category_id, presence: ture 
