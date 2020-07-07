@@ -155,7 +155,7 @@
 }
 
 .product-details{
-  padding: 40px 40px 40px;
+  padding: 40px 40px 0px;
   border-bottom: 1px solid #dcdcdc;
   p{
     font-weight: bold;
@@ -180,7 +180,7 @@
     padding: 0 16px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    margin: 20px 0px 0px;
+    margin: 20px 0px 40px;
     }
     span.any{
     background-color: #c0c0c0;
@@ -191,10 +191,6 @@
     font-size: 13px;
     font-weight: bold;
     }
-  &__category{
-    padding-bottom: 40px;
-  }
-
   &__brand{
     input{
       width: 580px;

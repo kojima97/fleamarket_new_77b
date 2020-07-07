@@ -1,0 +1,24 @@
+.show__frame {
+  width: 500px;
+  background-color: white;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 1rem;
+  &__title {
+    font-weight: bold;
+  }
+}
+
+  .add__btn {
+    background-color: #2CCCD1;
+    line-height: 48px;
+    display: block;
+    width: 40%;
+    border: none;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    color: white;
+    margin: 20px auto;
+    border-radius: 1rem;
+  }
