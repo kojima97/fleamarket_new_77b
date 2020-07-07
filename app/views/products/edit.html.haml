@@ -1,0 +1,104 @@
+= render "/application/header"
+
+-# アラート・ここから
+.notifications
+  - flash.each do |key, value|
+    = content_tag(:div, value, class: key)
+-# アラート・ここまで
+
+
+  - @product.product_photos.each do |photo|
+    = image_tag photo.photo, class:'main-content__photoSub--small'
+
+.new
+  = form_for @product do |f|
+    .product-photo
+      %label 出品画像
+      %span.require 必須
+      %p 最大5枚までアップロードできます
+      .product-photo__container
+        .prev-content
+          .preview-box{:id => "preview-box__　${count}"}
+            - @product.product_photos.each do |photo|
+              = image_tag photo.photo, class:'upper-box'
+            .lower-box
+              .delete-box{:id => "delete_btn_${count}"}
+                %span 削除
+
+        .label-content
+          %label{for: "product_photos_attributes_1_product_photos", class: "label-box", id: "label-box--1"}
+            %pre.label-box__text-visible クリックしてファイルをアップロード
+        .hidden-content
+          = f.fields_for :product_photos do |i|
+            = i.file_field :photo, class: "hidden-field"
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][1][photo]", id: "product_photos_attributes_1_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][2][photo]", id: "product_photos_attributes_2_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][3][photo]", id: "product_photos_attributes_3_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][4][photo]", id: "product_photos_attributes_4_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][5][photo]", id: "product_photos_attributes_5_product_photos" }
+    .product
+      %label  商品名
+      %span.require 必須
+      .product__name
+        = f.text_field :name, placeholder: "40文字まで"
+      %label 商品の説明
+      %span.require 必須
+      .product__explanation
+        = f.text_area :explanation, placeholder: "商品の説明(必須 1000文字以内)\r\n(色、素材、重さ、定価、注意点など)\r\n\r\n例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでオススメです。"
+    .product-details
+      %p 商品詳細
+      %label カテゴリー
+      %span.require 必須
+      .product-details__category
+        - if @product.category.present?
+          = f.collection_select :category_id, Category.roots, :id, :name, {include_blank:"---", selected: @product.category.root_id}, id: 'parent_category'
+          - if @product.persisted?
+            = f.colleciton_select :category_id, Category.children, :id, :name, {include_blank:"---", selected: @product.category.child_ids}, id: 'children_category'
+            = f.collection_select :cateogry_id, Category.indirects, :id, :name, {include_blank:"---", selected: @product.category.indirect_ids}, id: 'grandchildren_category'
+
+      .product-details__brand
+        %label ブランド
+        %span.any 任意
+        = f.text_field :brand, placeholder: "例）エルメス"
+      %label 商品の状態
+      %span.require 必須
+      .product-details__status
+        = f.select :status, Product.statuses.keys, id: "select_status"
+    .delivery
+      %p 配送について
+      %label 配送料の負担
+      %span.require 必須
+      .delivery__charge
+        = f.select :bear, Product.bears.keys
+      %label 配送方法
+      %span.require 必須
+      .delivery__method
+        = f.select :shipping_method, Product.shipping_methods.keys
+      %label 発送元の地域
+      %span.require 必須
+      .delivery__prefecture
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name
+      %label 発送までの日数
+      %span.require 必須
+      .delivery__send-day
+        = f.select :ship_day, Product.ship_days.keys
+    .selling__price
+      %p 価格（¥300~9,999,999）
+      %label 販売価格
+      %span.require 必須
+      %span ¥
+      = f.number_field :price, placeholder: "0", id: "price-result"
+    .exhibition-btn
+      = f.submit '出品する', class:"submit-exhibit"
+    .save-draft-btn
+      = f.submit '下書きに保存'
+    .return
+      = link_to root_path do
+        もどる
+    .note
+      禁止されている行為および出品物を必ずご確認ください。
+      偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 
+      また、出品をもちまして加盟店規約に同意したことになります。
+  
+  = render "/application/banner"
+  = render "/application/footer"

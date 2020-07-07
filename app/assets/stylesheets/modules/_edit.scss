@@ -1,0 +1,329 @@
+// アラート・ここから
+.notifications {
+  color: white;
+  text-align: center;  
+  .notice {
+    background-color: lightBlue;
+  }
+  .alert {
+    background-color: orange;
+  }
+}
+// アラート・ここまで
+
+.new{ 
+  background-color:#ffffff;
+  margin-right: auto;//ここで中央寄せを指定する。
+  margin-left : auto;
+  width:700px;
+}
+
+.product-photo{
+  padding: 40px;
+  border-bottom: 1px solid #dcdcdc;
+  font-weight: bold;
+  span.require{
+    background-color: red;
+    color: #ffffff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  p{
+    font-weight: normal;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+
+
+//修正中
+  .product-photo__container{
+    display: block;
+    margin: 16px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    //プレビュー表示欄のCSS
+    .prev-content {
+      display: flex;
+      .preview-box {
+        height: 162px;
+        width: 112px;
+        margin: 0 15px 10px 0;
+        .upper-box {
+          height: 112px;
+          width: 100%;
+          img{
+            width: 112px;
+            height: 112px;
+          }
+        }
+        .lower-box {
+          display: flex;
+          text-align: center;
+          .delete-box {
+            color: #00b0ff;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #eee;
+            background: #f5f5f5;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+      //投稿クリックエリアのCSS
+    .label-content{
+      margin-bottom: 10px;
+      width: 620px;
+      .label-box {
+        display: block;
+        border: 1px dashed #3CCACE;
+        position: relative;
+        background: #e0ffff;
+        width: 100%;
+        height: 162px;
+        cursor: pointer;
+        &__text-visible {
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          right: 16px;
+          text-align: center;
+          font-size: 14px;
+          line-height: 1.5;
+          font-weight: bold;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+  // file_fieldのcss
+  .hidden-content {
+    .hidden-field {
+      display: none;
+    }
+    .hidden-checkbox {
+      display: none;
+    }
+  }
+}
+  
+.product{
+  padding: 40px;
+  border-bottom: 1px solid #dcdcdc;
+  label{
+    font-weight: bold;
+  }
+  span{
+      background-color: red;
+      color: #ffffff;
+      padding: 1px 4px;
+      border-radius: 3px;
+      margin-left: 8px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+  &__name {
+    input{
+      width: 580px;
+      height: 40px;
+      padding: 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin: 20px 0px 40px;
+    }
+  }
+
+  &__explanation{
+    textarea{
+      width: 580px;
+      height: 140px;
+      padding: 13px 16px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin: 20px 0px 0px;
+    }
+  }
+}
+
+.product-details{
+  padding: 40px 40px 0px;
+  border-bottom: 1px solid #dcdcdc;
+  p{
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #a9a9a9;
+    }
+  label{
+    font-weight: bold;
+  }
+  span{
+    background-color: red;
+    color: #ffffff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  select{
+    width: 615px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 20px 0px 40px;
+    }
+    span.any{
+    background-color: #c0c0c0;
+    color: #ffffff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    }
+  &__brand{
+    input{
+      width: 580px;
+      height: 40px;
+      padding: 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin: 20px 0px 40px;
+    }
+  }
+}
+
+.delivery{
+  padding: 40px 40px 0px;
+  border-bottom: 1px solid #dcdcdc;
+  p{
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #a9a9a9;
+    }
+  label{
+    font-weight: bold;
+  }
+  span{
+    background-color: red;
+    color: #ffffff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  select{
+    width: 615px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 20px 0px 40px;
+  }
+  &__method{
+    p{
+      font-weight: bold;
+    }
+  }
+    
+  &__prefecture{
+    p{
+      font-weight: bold;
+    }
+  }
+  &__send-day{
+    p{
+      font-weight: bold;
+    }
+  }
+}
+
+.selling__price{
+  padding: 40px;
+  font-weight: bold;
+  p{
+    color: #a9a9a9;
+    margin-bottom: 20px;
+  }
+  span.require{
+    background-color: red;
+    color: #ffffff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  span{
+    padding-left: 140px;
+  }
+  input{
+    width: 300px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 20px 0px 40px 10px;
+    }
+  }
+
+.exhibition-btn{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  input{
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px 200px;
+    text-decoration: none;
+    color: #FFF;
+    background: #3CCACE;
+    transition: .4s;
+    border-radius: 3px;
+    width: 500px;
+  }
+}
+
+.save-draft-btn{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  input{
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px 200px;
+    text-decoration: none;
+    color: #FFF;
+    background: #ccc;
+    transition: .4s;
+    border-radius: 3px;
+  }
+}
+
+.return{
+  color: #c0c0c0;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.note{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
