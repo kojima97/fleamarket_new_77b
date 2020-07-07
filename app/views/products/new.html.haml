@@ -20,11 +20,11 @@
         .hidden-content
           = f.fields_for :product_photos do |i|
             = i.file_field :photo, class: "hidden-field"
-            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][1][product_photos]", id: "product_photos_attributes_1_product_photos" }
-            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][2][product_photos]", id: "product_photos_attributes_2_product_photos" }
-            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][3][product_photos]", id: "product_photos_attributes_3_product_photos" }
-            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][4][product_photos]", id: "product_photos_attributes_4_product_photos" }
-            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][5][product_photos]", id: "product_photos_attributes_5_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][1][photo]", id: "product_photos_attributes_1_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][2][photo]", id: "product_photos_attributes_2_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][3][photo]", id: "product_photos_attributes_3_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][4][photo]", id: "product_photos_attributes_4_product_photos" }
+            %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][5][photo]", id: "product_photos_attributes_5_product_photos" }
     .product
       %label  商品名
       %span.require 必須

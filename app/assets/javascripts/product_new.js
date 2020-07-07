@@ -88,6 +88,5 @@ $(function(){
       //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
       $('.label-box').attr({id: `label-box--${id}`,for: `product_photos_attributes_${id}_product_photos`});
     }
-    console.log("test")
   });
 });
