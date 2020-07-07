@@ -6,22 +6,22 @@
       = @product.name
     .main-content__photo
       = image_tag @product.product_photos[0].photo, class:'item-main-content__photo--big'
-      -if @product.buyer_user_id.present?
+      -if @product.buyer_user_id.present? 
         .items-box_photo__sold
           .items-box_photo__sold__inner SOLD
 
     .main-content__photoSub
       - @product.product_photos.each do |photo|
         = image_tag photo.photo, class:'main-content__photoSub--small'
-
+    
     .main-content__price
       %p.lower-message__content
         = @product.price
         円
       %span.main-content__price--detail
-        .main-content__price--detail-tax
+        .main-content__price--detail-tax 
           (税込)
-        .main-content__price--detail-shipFee
+        .main-content__price--detail-shipFee 
           送料込み
 
     .main-content__purchase
@@ -37,7 +37,7 @@
 
     .main-content__description
       = @product.explanation
-
+    
     %table.main-content__table
       %tbody
         %tr
@@ -59,25 +59,25 @@
             = @product.brand
         %tr
           %th 商品の状態
-          %td
+          %td 
             = @product.status
         %tr
           %th 配送料の負担
-          %td
+          %td 
             = @product.bear
         %tr
           %th 配送元地域
-          %td
+          %td 
             = @product.prefecture.name
         %tr
           %th 発送日の目安
-          %td
-            = @product.ship_day
+          %td 
+            = @product.ship_day 
 
     .main-content__btn
       %button.main-content__btn--like
         = icon('fas', 'star')
-        お気に入り
+        お気に入り 
         .main-content__btn--like--numLike
         ０
       %button.main-content__btn--report
@@ -123,7 +123,7 @@
         = icon('fas', 'chevron-right')
 
     .other-products__genre
-      = link_to "メンズをもっと見る", "/" , method: :post
+      = link_to "メンズをもっと見る", "/" , method: :post 
 
 = render "/application/banner"
 = render "/application/footer"
