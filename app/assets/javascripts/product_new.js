@@ -68,6 +68,8 @@ $(function(){
 
   // 画像の削除
   $(document).on('click', '.delete-box', function() {
+    $(this).prev().remove();
+    $('.delete-box').remove();
     var count = $('.preview-box').length;
     setLabel(count);
     //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
@@ -75,7 +77,7 @@ $(function(){
     //取得したidに該当するプレビューを削除
     $(`#preview-box__${id}`).remove();
     //フォームの中身を削除 
-    $(`#item_images_attributes_${id}_image`).val("");
+    $(`#product_photos_attributes_${id}_product_photos`).val("");
 
     //削除時のラベル操作
     var count = $('.preview-box').length;
@@ -87,7 +89,7 @@ $(function(){
 
     if(id < 5){
       //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
-      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      $('.label-box').attr({id: `label-box--${id}`,for: `product_photos_attributes_${id}_image`});
     }
   });
 });

@@ -27,9 +27,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    # binding.pry
     if @product.save
-      redirect_to root_path(@product), notice: '出品完了'
+      # redirect_to root_path(@product), notice: '出品完了'
+      render :new, notice: '出品完了'
     else
       @product = Product.new
       @product.product_photos.build
@@ -40,9 +40,19 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @category_parent_array = Category.where(ancestry: nil)
+    @grandchildren_category = @product.category
+    @children_category = @grandchildren_category.parent
+
+    @category_children_array = Category.where(ancestry: @children_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: @grandchildren_category.ancestry)
   end
 
   def update
+    @product.update(product_params)
+    # binding.pry
+    redirect_to product_path(params[:id])
+    render :edit
   end
 
   def destroy
@@ -78,5 +88,11 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def ensure_currect_user
+    if current_user.id != @product.exhibitor_user_id
+      redirect_to root_path(params[:id])
+    end
   end
 end
