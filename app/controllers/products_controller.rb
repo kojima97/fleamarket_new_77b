@@ -28,8 +28,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      # redirect_to root_path(@product), notice: '出品完了'
-      render :new, notice: '出品完了'
+      redirect_to root_path(@product), notice: '出品完了'
     else
       @product = Product.new
       @product.product_photos.build
@@ -50,9 +49,7 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
-    # binding.pry
     redirect_to product_path(params[:id])
-    render :edit
   end
 
   def destroy
@@ -78,7 +75,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :explanation, :category_id, :status, :bear, :shipping_method, :prefecture_id, :brand, :ship_day, :price, product_photos_attributes: [:photo]).merge(exhibitor_user_id: current_user.id)
+    params.require(:product).permit(:name, :explanation, :category_id, :status, :bear, :shipping_method, :prefecture_id, :brand, :ship_day, :price, product_photos_attributes: [:photo, :id, :_destroy]).merge(exhibitor_user_id: current_user.id)
   end
 
   def set_product

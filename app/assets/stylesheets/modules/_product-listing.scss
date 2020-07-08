@@ -41,10 +41,11 @@
 
 //修正中
   .product-photo__container{
+    width: 620px;
     display: block;
     margin: 16px auto 0;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     //プレビュー表示欄のCSS
     .prev-content {
       display: flex;
@@ -78,7 +79,7 @@
       //投稿クリックエリアのCSS
     .label-content{
       margin-bottom: 10px;
-      width: 620px;
+      width: 100%;
       .label-box {
         display: block;
         border: 1px dashed #3CCACE;
