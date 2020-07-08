@@ -44,7 +44,7 @@ $(function(){
         var count = $('.preview-box').length;
         var html = buildHTML(id);
         //ラベルの直前のプレビュー群にプレビューを追加
-        var prevContent = $('.label-content').prev();
+        var prevContent = $('.prev-content');
         $(prevContent).append(html);
       }
       //イメージを追加
@@ -68,7 +68,7 @@ $(function(){
   // 画像の削除
   $(document).on('click', '.delete-box', function() {
     $(this).prev().remove();
-    $('.delete-box').remove();
+    // $('.delete-box').remove();
     var count = $('.preview-box').length;
     setLabel(count);
     //item_images_attributes_${id}_image から${id}に入った数字のみを抽出

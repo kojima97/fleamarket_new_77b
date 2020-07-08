@@ -18,15 +18,15 @@
       %p 最大5枚までアップロードできます
       .product-photo__container
         .prev-content
-          .preview-box{:id => "preview-box__　${count}"}
-            - @product.product_photos.each do |photo|
+          - @product.product_photos.each_with_index do |photo,i|
+            .preview-box{:id => "preview-box__#{i+1}"}
               = image_tag photo.photo, class:'upper-box'
-            .lower-box
-              .delete-box{:id => "delete_btn_${count}"}
-                %span 削除
+              .lower-box
+                .delete-box{:id => "delete_btn_#{i+1}"}
+                  %span 削除
 
         .label-content
-          %label{for: "product_photos_attributes_1_product_photos", class: "label-box", id: "label-box--1"}
+          %label{for: "product_photos_attributes_2_product_photos", class: "label-box", id: "label-box--"}
             %pre.label-box__text-visible クリックしてファイルをアップロード
         .hidden-content
           = f.fields_for :product_photos do |i|
@@ -50,11 +50,13 @@
       %label カテゴリー
       %span.require 必須
       .product-details__category
-        - if @product.category.present?
-          = f.collection_select :category_id, Category.roots, :id, :name, {include_blank:"---", selected: @product.category.root_id}, id: 'parent_category'
-          - if @product.persisted?
-            = f.colleciton_select :category_id, Category.children, :id, :name, {include_blank:"---", selected: @product.category.child_ids}, id: 'children_category'
-            = f.collection_select :cateogry_id, Category.indirects, :id, :name, {include_blank:"---", selected: @product.category.indirect_ids}, id: 'grandchildren_category'
+        = f.collection_select :category_id, Category.roots, :id, :name, {include_blank: "---",selected: @product.category&.root_id}, required: true,class:'category__select', id: 'parent_category'
+        .category-wrapper-select#children_wrapper
+          .category-wrapper-select__box
+            = f.collection_select :category_id, @product.category.parent.siblings, :id, :name, {include_blank: "---",selected: @product.category.parent_id}, required: true,class:'category__select', id: 'child_category'
+          .category-wrapper-select#grandchildren_wrapper
+            .category-wrapper-select__box
+              = f.collection_select :category_id, @product.category.siblings, :id, :name, {include_blank: "---",selected: @product.category.id}, required: true, class: 'category__select' ,id: 'grandchild_category'
 
       .product-details__brand
         %label ブランド
