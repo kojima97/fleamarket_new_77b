@@ -88,4 +88,8 @@ end
 gem 'enum_help'
 gem 'payjp'
 gem 'dotenv-rails'
-
+gem 'rails-controller-testing'
+group :test do
+  gem 'faker', "~> 2.8"
+end
+gem 'rails-i18n', '~> 5.1' 
