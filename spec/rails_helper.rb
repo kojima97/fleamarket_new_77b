@@ -59,7 +59,11 @@ RSpec.configure do |config|
   require 'support/factory_bot'
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
-  
+  RSpec.configure do |config|
+    Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+    config.include Devise::Test::ControllerHelpers, type: :controller
+    config.include ControllerMacros, type: :controller
+  end
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
