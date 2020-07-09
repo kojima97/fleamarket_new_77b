@@ -41,10 +41,11 @@
 
 //修正中
   .product-photo__container{
+    width: 620px;
     display: block;
     margin: 16px auto 0;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     //プレビュー表示欄のCSS
     .prev-content {
       display: flex;
@@ -78,7 +79,7 @@
       //投稿クリックエリアのCSS
     .label-content{
       margin-bottom: 10px;
-      width: 620px;
+      width: 100%;
       .label-box {
         display: block;
         border: 1px dashed #3CCACE;
@@ -155,7 +156,7 @@
 }
 
 .product-details{
-  padding: 40px 40px 0px;
+  padding: 40px 40px 40px;
   border-bottom: 1px solid #dcdcdc;
   p{
     font-weight: bold;
@@ -180,7 +181,7 @@
     padding: 0 16px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    margin: 20px 0px 40px;
+    margin: 20px 0px 0px;
     }
     span.any{
     background-color: #c0c0c0;
@@ -191,6 +192,10 @@
     font-size: 13px;
     font-weight: bold;
     }
+  &__category{
+    padding-bottom: 40px;
+  }
+
   &__brand{
     input{
       width: 580px;

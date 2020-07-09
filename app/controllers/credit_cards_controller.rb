@@ -1,7 +1,7 @@
 class CreditCardsController < ApplicationController
-  
+
     require "payjp" #PAYJPとやり取りするために、payjpをロード
-  
+
     def new
       # 前回のnewアクションに追記
       # すでにクレジットカード登録されている場合は、showアクションにリダイレクト
@@ -11,11 +11,11 @@ class CreditCardsController < ApplicationController
         @card = CreditCard.new
       end
     end
-  
+
     def create
       # 前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
       Payjp.api_key = ENV["PAYJP_ACCESS_KEY"]
-  
+
       # 後ほどトークン作成処理を行いますが、そちらの完了の有無でフラッシュメッセージを表示させます。
       if params["payjp_token"].blank?
         redirect_to action: "new", alert: "クレジットカードを登録できませんでした。"
@@ -35,6 +35,7 @@ class CreditCardsController < ApplicationController
         else
           redirect_to action: "create"
         end
+        redirect_to user_path(current_user.id)
       end
     end
     def show
@@ -42,7 +43,7 @@ class CreditCardsController < ApplicationController
       @card = CreditCard.find_by(user_id: current_user.id)
       if @card.blank?
         # 未登録なら新規登録画面に
-        redirect_to action: "new" 
+        redirect_to action: "new"
       else
         # 前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
         Payjp.api_key = ENV["PAYJP_ACCESS_KEY"]
@@ -50,7 +51,7 @@ class CreditCardsController < ApplicationController
         customer = Payjp::Customer.retrieve(@card.customer_id)
         # カスタマー情報からカードの情報を引き出す
         @customer_card = customer.cards.retrieve(@card.card_id)
-  
+
         ##カードのアイコン表示のための定義づけ
         @card_brand = @customer_card.brand
         case @card_brand
@@ -69,7 +70,7 @@ class CreditCardsController < ApplicationController
         when "Discover"
           @card_src = "discover.png"
         end
-  
+
         #  viewの記述を簡略化
         ## 有効期限'月'を定義
         @exp_month = @customer_card.exp_month.to_s
@@ -77,7 +78,7 @@ class CreditCardsController < ApplicationController
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
       end
     end
-  
+
     def destroy
       # ログイン中のユーザーのクレジットカード登録の有無を判断
       @card = CreditCard.find_by(user_id: current_user.id)
@@ -96,11 +97,13 @@ class CreditCardsController < ApplicationController
         if @card.destroy
         # 削除完了していればdestroyのビューに移行
         # destroyビューを作るのが面倒であれば、flashメッセージを入れてトップページやマイページに飛ばしてもOK
-  
+
         else
           # 削除されなかった場合flashメッセージを表示させて、showのビューに移行
           redirect_to credit_card_path(current_user.id), alert: "削除できませんでした。"
         end
       end
+      redirect_to user_path(current_user.id)
     end
+
 end

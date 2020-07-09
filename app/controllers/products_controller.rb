@@ -40,14 +40,15 @@ class ProductsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil)
     @grandchildren_category = @product.category
     @children_category = @grandchildren_category.parent
+
     @category_children_array = Category.where(ancestry: @children_category.ancestry)
     @category_grandchildren_array = Category.where(ancestry: @grandchildren_category.ancestry)
   end
   def update
     @product.update(product_params)
-    # binding.pry
+
     redirect_to product_path(params[:id])
-    render :edit
+
   end
   def destroy
     @product = Product.find(params[:id])
@@ -57,10 +58,12 @@ class ProductsController < ApplicationController
       @parents = Category.where(ancestry: nil)
       @comments = Comment.where(product_id: params[:id])
       render :show
+
+
     end
   end
-  def purchase_details_confirmation
-  end
+
+
   def get_category_children
     @category_children = Category.find_by(id: params[:parent_name], ancestry: nil).children
   end
@@ -68,15 +71,19 @@ class ProductsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
   private
+
   def product_params
-    params.require(:product).permit(:name, :explanation, :category_id, :status, :bear, :shipping_method, :prefecture_id, :brand, :ship_day, :price, product_photos_attributes: [:photo]).merge(exhibitor_user_id: current_user.id)
+    params.require(:product).permit(:name, :explanation, :category_id, :status, :bear, :shipping_method, :prefecture_id, :brand, :ship_day, :price, product_photos_attributes: [:photo, :id, :_destroy]).merge(exhibitor_user_id: current_user.id)
   end
   def set_product
     @product = Product.find(params[:id])
   end
+
   def ensure_currect_user
     if current_user.id != @product.exhibitor_user_id
       redirect_to root_path(params[:id])
     end
   end
+
 end
+
