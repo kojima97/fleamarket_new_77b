@@ -20,10 +20,10 @@
         .prev-content
           - @product.product_photos.each_with_index do |photo,i|
             - if photo.persisted?
-              .preview-box{:id => "preview-box__#{i}"}
+              .preview-box{id:"preview-box__#{i}"}
                 = image_tag photo.photo, class:'upper-box'
                 .lower-box
-                  .delete-box{:id => "delete_btn_#{i}"}
+                  .delete-box{id:"delete_btn_#{i}"}
                     %span 削除
         .label-content
           %label{for: "product_photos_attributes_#{@product.product_photos.length - 1}_product_photos", class: "label-box", id: "label-box--"}
