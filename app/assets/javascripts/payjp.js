@@ -5,8 +5,8 @@ $(function(){
 
   Payjp.setPublicKey('pk_test_03676e291b60a275eb2f9e83'); //公開鍵の記述(ご自身の公開鍵コードを記述しよう！)
 
-    submit.addEventListener('click', function(e){ //ボタンが押されたらトークン作成開始。
-
+    // submit.addEventListener('click', function(e){ //ボタンが押されたらトークン作成開始。
+    $("#payment_card_submit-button").on("click", function(e){
     e.preventDefault(); //ボタンを1度無効化
 
     let card = { //入力されたカード情報を取得(id名の記載ミスに注意！)
