@@ -28,7 +28,6 @@ $(function(){
     setLabel();
     //hidden-fieldのidの数値のみ取得
     var id = Number($(this).attr('id').replace(/[^0-9]/g, ''));
-    console.log(id)
     //labelボックスのidとforを更新
     $('.label-box').attr({id: `label-box--${id + 1}`,for: `product_photos_attributes_${id + 1}_product_photos`});
     

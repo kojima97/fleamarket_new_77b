@@ -32,12 +32,6 @@
           = f.fields_for :product_photos do |i|
             = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy' if @product.product_photos[i.index].persisted?
             = i.file_field :photo, class: "hidden-field", id: "product_photos_attributes_#{i.index}_product_photos"
-            -# %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][1][photo]", id: "product_photos_attributes_1_product_photos" }
-            -# %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][2][photo]", id: "product_photos_attributes_2_product_photos" }
-            -# %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][3][photo]", id: "product_photos_attributes_3_product_photos" }
-            -# %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][4][photo]", id: "product_photos_attributes_4_product_photos" }
-            -# %input{class:"hidden-field", type: "file", name: "product[product_photos_attributes][5][photo]", id: "product_photos_attributes_5_product_photos" }
-            -#  <input class="hidden-field" name="product[product_photos_attributes][i][photo]" type="file" id="product_photos_attributes_i_product_photos"> 
     .product
       %label  商品名
       %span.require 必須
