@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  # before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
     
     @products = Product.all.includes(:product_photos).order(created_at: :desc)
@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @user = User.find(@product.exhibitor_user_id)
     @product = Product.find(params[:id])
      
-    # @category = Category.find(@product.category_id)
+    
   end
   def new
     if user_signed_in?
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      # redirect_to root_path(@product), notice: '出品完了'
+      
       render :new, notice: '出品完了'
     else
       @product = Product.new
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
   end
   def update
     @product.update(product_params)
-    # binding.pry
+    
     redirect_to product_path(params[:id])
     render :edit
   end
