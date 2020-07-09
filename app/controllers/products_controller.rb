@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
 
     @category_children_array = Category.where(ancestry: @children_category.ancestry)
     @category_grandchildren_array = Category.where(ancestry: @grandchildren_category.ancestry)
+    @product.product_photos.build
   end
 
   def update

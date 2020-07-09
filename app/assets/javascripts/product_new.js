@@ -28,6 +28,7 @@ $(function(){
     setLabel();
     //hidden-fieldのidの数値のみ取得
     var id = Number($(this).attr('id').replace(/[^0-9]/g, ''));
+    console.log(id)
     //labelボックスのidとforを更新
     $('.label-box').attr({id: `label-box--${id + 1}`,for: `product_photos_attributes_${id + 1}_product_photos`});
     
@@ -49,7 +50,7 @@ $(function(){
       }
       //イメージを追加
       $(`#preview-box__${id} img`).attr('src', `${image}`);
-      var count = $('.preview-box').length;
+      var count = $('.hidden-field').length;
       //プレビューが5個あったらラベルを隠す 
       if (count == 5) { 
         $('.label-content').hide();
@@ -61,6 +62,7 @@ $(function(){
       if(count < 5){
         //プレビューの数でラベルのオプションを更新する
         $('.label-box').attr({id: `label-box--${id + 1}`,for: `product_photos_attributes_${id + 1}_product_photos`});
+        $(".hidden-content").append(`<input class="hidden-field" name="product[product_photos_attributes][${id + 1}][photo]" type="file" id="product_photos_attributes_${id + 1}_product_photos"> `)
       }
     }
   });
@@ -77,6 +79,8 @@ $(function(){
     $(`#preview-box__${id}`).remove();
     //フォームの中身を削除 
     $(`#product_photos_attributes_${id}_product_photos`).val("");
+    $(`#product_product_photos_attributes_${id}__destroy`).prop("checked",true);
+    
 
     //削除時のラベル操作
     var count = $('.preview-box').length;
