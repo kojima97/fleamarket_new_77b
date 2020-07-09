@@ -26,8 +26,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      
-      render :new, notice: '出品完了'
+
+      redirect_to root_path, notice: '出品完了'
     else
       @product = Product.new
       @product.product_photos.build
