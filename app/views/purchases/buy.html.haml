@@ -22,7 +22,8 @@
         .main-content__price--detail-shipFee 
           送料込み  
 
-      - if @credit_card.present?
+      - if @user.credit_card.present?
+      
         .purchase_function
           .credit_card_info_title
             クレジットカード情報

@@ -3,6 +3,10 @@ ja:
   activerecord:
     attributes:
       address:
+        first_name: 名字
+        first_name_furigana: 名字（カタカナ）
+        last_name: 名前
+        last_name_furigana: 名前（カタカナ）
         city: 市
         other: 番地
         postal_code: 郵便番号
