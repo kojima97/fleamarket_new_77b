@@ -55,7 +55,7 @@
       .delivery__charge
         = f.select :bear, Product.bears.keys
       %label 配送方法
-      %span.require 必須
+      %span.any 任意
       .delivery__method
         = f.select :shipping_method, Product.shipping_methods.keys
       %label 発送元の地域
