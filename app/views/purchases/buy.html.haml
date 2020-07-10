@@ -29,8 +29,7 @@
             クレジットカード情報
             
             .credit_card_info
-              .credit_card_info__brand
-                = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
+              
               .credit_card_info__numbers
                 .number
                   = "**** **** **** " + @customer_card.last4
