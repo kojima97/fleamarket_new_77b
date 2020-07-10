@@ -13,15 +13,19 @@
 ActiveRecord::Schema.define(version: 20200703111705) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name",          null: false
+    t.string   "first_name_furigana", null: false
+    t.string   "last_name",           null: false
+    t.string   "last_name_furigana",  null: false
     t.integer  "address_id"
-    t.integer  "postal_code",   null: false
-    t.integer  "prefecture_id", null: false
-    t.string   "city",          null: false
-    t.string   "other",         null: false
+    t.integer  "postal_code",         null: false
+    t.integer  "prefecture_id",       null: false
+    t.string   "city",                null: false
+    t.string   "other",               null: false
     t.string   "building_name"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

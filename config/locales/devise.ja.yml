@@ -44,6 +44,7 @@ ja:
         tel_number: 電話番号（任意）
     models:
       user: ユーザ
+      address: 商品送付先情報
   devise:
     confirmations:
       confirmed: アカウントを登録しました。
