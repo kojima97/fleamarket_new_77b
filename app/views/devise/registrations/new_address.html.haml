@@ -8,24 +8,24 @@
     %section.sign-up-content__main
       .sign-up-content__main__form
         = form_for @address do |f|
-          -# .sign-up-content__main__form__group
-          -#   = f.label :first_name
-          -#   %br/
-          -#   = f.text_field :first_name, autofocus: true, autocomplete: "first_name"
-          -# .sign-up-content__main__form__group
-          -#   = f.label :last_name
-          -#   %br/
-          -#   = f.text_field :last_name, autofocus: true, autocomplete: "last_name"
+          .sign-up-content__main__form__group
+            = f.label :first_name
+            %br/
+            = f.text_field :first_name, autofocus: true, autocomplete: "first_name"
+          .sign-up-content__main__form__group
+            = f.label :last_name
+            %br/
+            = f.text_field :last_name, autofocus: true, autocomplete: "last_name"
             
             
-          -# .sign-up-content__main__form__group
-          -#   = f.label :first_name_furigana
-          -#   %br/
-          -#   = f.text_field :first_name_furigana, autofocus: true, autocomplete: "first_name_furigana"
-          -# .sign-up-content__main__form__group
-          -#   = f.label :last_name_furigana
-          -#   %br/
-          -#   = f.text_field :last_name_furigana, autofocus: true, autocomplete: "last_name_furigana"
+          .sign-up-content__main__form__group
+            = f.label :first_name_furigana
+            %br/
+            = f.text_field :first_name_furigana, autofocus: true, autocomplete: "first_name_furigana"
+          .sign-up-content__main__form__group
+            = f.label :last_name_furigana
+            %br/
+            = f.text_field :last_name_furigana, autofocus: true, autocomplete: "last_name_furigana"
           
           
           .sign-up-content__main__form__group
